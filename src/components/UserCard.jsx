@@ -17,9 +17,7 @@ const UserCard = ({ id, name, email, company }) => {
               <MdEmail />
             </div>
             <div className="item_right">
-              <a className="user_card_email" href={`mailto:${email}`}>
-                {email}
-              </a>
+              <span className="user_card_email">{email}</span>
             </div>
           </div>
           <div className="user_card_item">
