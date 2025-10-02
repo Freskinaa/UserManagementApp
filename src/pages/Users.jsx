@@ -7,7 +7,7 @@ import Button from "../components/Button";
 import { FaPlus, FaSortAlphaDown, FaSortAlphaUp } from "react-icons/fa";
 import CustomModal from "../components/CustomModal";
 import "../style/users.css";
-import AddUser from "../components/AddUser";
+import UserForm from "../components/UserForm";
 
 const Users = () => {
   const dispatch = useDispatch();
@@ -81,19 +81,12 @@ const Users = () => {
         title={"Add User"}
         width="50%"
       >
-        <AddUser
+        <UserForm
           newId={users.length + 1}
-          onAddUser={handleAddUser}
+          onConfirm={handleAddUser}
           onClose={() => setIsModalOpen(false)}
         />
       </CustomModal>
-
-      {/* <AddUserModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        newId={users.length + 1}
-        onAddUser={handleAddUser}
-      /> */}
     </div>
   );
 };

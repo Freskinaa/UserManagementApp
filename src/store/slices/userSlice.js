@@ -37,6 +37,23 @@ const userSlice = createSlice({
     addLocalUser: (state, action) => {
       state.users.unshift(action.payload);
     },
+    editLocalUser: (state, action) => {
+      const updatedUser = action.payload;
+      const index = state.users.findIndex((u) => u.id === updatedUser.id);
+      if (index !== -1) {
+        state.users[index] = { ...state.users[index], ...updatedUser };
+      }
+      if (state.userDetails?.id === updatedUser.id) {
+        state.userDetails = { ...state.userDetails, ...updatedUser };
+      }
+    },
+    deleteLocalUser: (state, action) => {
+      const userId = action.payload;
+      state.users = state.users.filter((u) => u.id !== userId);
+      if (state.userDetails?.id === userId) {
+        state.userDetails = null;
+      }
+    },
     setUserDetails: (state, action) => {
       const user = state.users.find((u) => u.id === Number(action.payload));
       if (user) state.userDetails = user;
@@ -74,6 +91,11 @@ const userSlice = createSlice({
   },
 });
 
-export const { addLocalUser, setUserDetails, resetUserDetails } =
-  userSlice.actions;
+export const {
+  addLocalUser,
+  editLocalUser,
+  deleteLocalUser,
+  setUserDetails,
+  resetUserDetails,
+} = userSlice.actions;
 export default userSlice.reducer;

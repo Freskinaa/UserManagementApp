@@ -1,13 +1,21 @@
-import React from "react";
-import { useState } from "react";
-import "../style/addUser.css";
+import React, { useState, useEffect } from "react";
+import "../style/userForm.css";
 import "../style/customModal.css";
 
-const AddUser = ({ newId, onAddUser, onClose }) => {
+const UserForm = ({ newId, user, onConfirm, onClose }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [companyName, setCompanyName] = useState("");
   const [catchPhrase, setCatchPhrase] = useState("");
+
+  useEffect(() => {
+    if (user) {
+      setName(user.name || "");
+      setEmail(user.email || "");
+      setCompanyName(user.company?.name || "");
+      setCatchPhrase(user.company?.catchPhrase || "");
+    }
+  }, [user]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +27,7 @@ const AddUser = ({ newId, onAddUser, onClose }) => {
     }
 
     const newUser = {
-      id: newId,
+      id: user ? user.id : newId,
       name,
       email,
     };
@@ -31,20 +39,20 @@ const AddUser = ({ newId, onAddUser, onClose }) => {
       };
     }
 
-    onAddUser(newUser);
+    if (onConfirm) {
+      onConfirm(newUser);
+    }
 
     setName("");
     setEmail("");
     setCompanyName("");
     setCatchPhrase("");
 
-    if (onClose) {
-      onClose();
-    }
+    if (onClose) onClose();
   };
 
   return (
-    <form onSubmit={handleSubmit} className="add_user_form">
+    <form onSubmit={handleSubmit} className="user_form">
       <input
         type="text"
         placeholder="Name"
@@ -73,7 +81,7 @@ const AddUser = ({ newId, onAddUser, onClose }) => {
       />
 
       <div className="modal_buttons">
-        <button type="submit">Add</button>
+        <button type="submit">{user ? "Save Changes" : "Add"}</button>
         <button type="button" onClick={onClose}>
           Cancel
         </button>
@@ -82,4 +90,4 @@ const AddUser = ({ newId, onAddUser, onClose }) => {
   );
 };
 
-export default AddUser;
+export default UserForm;

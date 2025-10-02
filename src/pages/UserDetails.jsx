@@ -1,18 +1,29 @@
-import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  deleteLocalUser,
+  editLocalUser,
   fetchUserDetails,
   resetUserDetails,
   setUserDetails,
 } from "../store/slices/userSlice";
 import UserProfileCard from "../components/UserProfileCard";
 import UserDetail from "../components/UserDetail";
+import Button from "../components/Button";
+import { MdOutlineEdit } from "react-icons/md";
+import { FaRegTrashCan } from "react-icons/fa6";
+import CustomModal from "../components/CustomModal";
+import UserForm from "../components/UserForm";
+import DeleteUserForm from "../components/DeleteUserFrom";
 
 const UserDetails = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { users, userDetails } = useSelector((state) => state.user);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState("");
 
   useEffect(() => {
     if (!id) return;
@@ -59,6 +70,20 @@ const UserDetails = () => {
     },
   ].filter(Boolean);
 
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalContent("");
+  };
+
+  const onEditUser = (user) => {
+    dispatch(editLocalUser(user));
+  };
+
+  const onDeleteUser = (userId) => {
+    dispatch(deleteLocalUser(userId));
+    navigate("/");
+  };
+
   if (userDetails === null) {
     return <></>;
   }
@@ -69,6 +94,26 @@ const UserDetails = () => {
         <div className="left_details">
           <UserProfileCard name={userDetails.name} />
           <span className="name_detail">{userDetails.name}</span>
+          <div className="action_buttons">
+            <Button
+              title={"Edit User"}
+              onClick={() => {
+                setIsModalOpen(true);
+                setModalContent("Edit User");
+              }}
+            >
+              <MdOutlineEdit />
+            </Button>
+            <Button
+              title={"Delete User"}
+              onClick={() => {
+                setIsModalOpen(true);
+                setModalContent("Delete User");
+              }}
+            >
+              <FaRegTrashCan />
+            </Button>
+          </div>
         </div>
         <div className="line_divider"></div>
         <div className="right_details">
@@ -103,6 +148,27 @@ const UserDetails = () => {
           ></iframe>
         )}
       </div>
+      <CustomModal
+        isOpen={isModalOpen}
+        onClose={closeModal}
+        title={modalContent}
+        width="50%"
+      >
+        {modalContent === "Edit User" && (
+          <UserForm
+            user={userDetails}
+            onConfirm={onEditUser}
+            onClose={closeModal}
+          />
+        )}
+        {modalContent === "Delete User" && (
+          <DeleteUserForm
+            user={userDetails}
+            onConfirm={onDeleteUser}
+            onClose={closeModal}
+          />
+        )}
+      </CustomModal>
     </div>
   );
 };
