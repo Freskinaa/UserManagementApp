@@ -31,21 +31,14 @@ const UserDetails = () => {
     };
   }, [id, users, dispatch]);
 
-  const allUserDetails = [
-    { type: "string", label: "Username", value: userDetails?.username },
-    { type: "string", label: "Email", value: userDetails?.email },
-    {
-      type: "string",
-      label: "Phone number",
-      value: userDetails?.phone,
-    },
-    { type: "link", label: "Website", value: userDetails?.website },
-    {
-      type: "company",
-      label: "Company",
-      value: userDetails?.company,
-    },
-  ];
+const allUserDetails = [
+  userDetails?.username && { type: "string", label: "Username", value: userDetails.username },
+  userDetails?.email && { type: "string", label: "Email", value: userDetails.email },
+  userDetails?.phone && { type: "string", label: "Phone number", value: userDetails.phone },
+  userDetails?.website && { type: "link", label: "Website", value: userDetails.website },
+  userDetails?.company && { type: "company", label: "Company", value: userDetails.company },
+].filter(Boolean);
+
 
   if (userDetails === null) {
     return <></>;
@@ -69,6 +62,27 @@ const UserDetails = () => {
             />
           ))}
         </div>
+      </div>
+      <div className="user_address_detail">
+        {userDetails.address && (
+          <div className="address_detail_text">
+            <span>
+              {userDetails.address.street}, {userDetails.address.suite},{" "}
+              {userDetails.address.city}, {userDetails.address.zipcode}
+            </span>
+          </div>
+        )}
+        {userDetails?.address && userDetails?.address.geo && (
+          <iframe
+            title="user-location"
+            width="100%"
+            height="300"
+            style={{ border: 0 }}
+            loading="lazy"
+            allowFullScreen
+            src={`https://www.google.com/maps?q=${userDetails.address.geo.lat},${userDetails.address.geo.lng}&z=15&output=embed`}
+          ></iframe>
+        )}
       </div>
     </div>
   );

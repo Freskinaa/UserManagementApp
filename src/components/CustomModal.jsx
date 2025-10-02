@@ -2,6 +2,8 @@ import React from "react";
 import Modal from "react-modal";
 import "../style/customModal.css";
 
+Modal.setAppElement("#root");
+
 const CustomModal = ({ isOpen, onClose, title, children, width = "450px" }) => {
   return (
     <Modal
