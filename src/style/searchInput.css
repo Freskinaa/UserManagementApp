@@ -1,0 +1,33 @@
+.text_input {
+  background: var(--white);
+  padding: 0.875rem 1.5rem;
+  outline: none;
+  border: none;
+  border-radius: 1.875rem;
+  width: 100%;
+  color: var(--text-dark);
+}
+
+.search_input_wrapper {
+  flex: 1;
+  position: relative;
+}
+
+.search_icon {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  font-size: 1.5rem;
+  transform: translateY(-50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.search_icon.visible {
+  opacity: 1;
+}
+
+.search_icon.hidden {
+  opacity: 0;
+}

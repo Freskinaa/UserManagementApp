@@ -1,0 +1,22 @@
+:root {
+  --bg-color: #f5f7fa;
+  --white: #ffffff;
+  --text-dark: #2b2d3b;
+  --text-medium: #666666;
+  --text-light: #999999;
+  --primary-blue: #65a2e4;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-color);
+}
+
+a {
+  text-decoration: none;
+}
