@@ -34,11 +34,12 @@ const userSlice = createSlice({
     error: null,
   },
   reducers: {
+    addLocalUser: (state, action) => {
+      state.users.unshift(action.payload);
+    },
     setUserDetails: (state, action) => {
       const user = state.users.find((u) => u.id === Number(action.payload));
-      if (user) {
-        state.userDetails = user;
-      }
+      if (user) state.userDetails = user;
     },
     resetUserDetails: (state) => {
       state.userDetails = null;
@@ -73,5 +74,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { setUserDetails, resetUserDetails } = userSlice.actions;
+export const { addLocalUser, setUserDetails, resetUserDetails } =
+  userSlice.actions;
 export default userSlice.reducer;

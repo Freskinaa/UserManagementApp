@@ -20,17 +20,19 @@ const UserCard = ({ id, name, email, company }) => {
               <span className="user_card_email">{email}</span>
             </div>
           </div>
-          <div className="user_card_item">
-            <div className="icon_wrapper">
-              <IoBagRemove />
+          {company && (
+            <div className="user_card_item">
+              <div className="icon_wrapper">
+                <IoBagRemove />
+              </div>
+              <div className="item_right">
+                <h5 className="user_card_company_name">{company.name}</h5>
+                <span className="user_card_company_desc">
+                  {company.catchPhrase}
+                </span>
+              </div>
             </div>
-            <div className="item_right">
-              <h5 className="user_card_company_name">{company.name}</h5>
-              <span className="user_card_company_desc">
-                {company.catchPhrase}
-              </span>
-            </div>
-          </div>
+          )}
         </div>
       </div>
     </Link>

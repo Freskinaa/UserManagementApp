@@ -1,7 +1,11 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUserDetails, resetUserDetails, setUserDetails } from "../store/slices/userSlice";
+import {
+  fetchUserDetails,
+  resetUserDetails,
+  setUserDetails,
+} from "../store/slices/userSlice";
 
 const UserDetails = () => {
   const { id } = useParams();
@@ -20,7 +24,11 @@ const UserDetails = () => {
     };
   }, [id, users, dispatch]);
 
-  return <div>UserDetails</div>;
+  return (
+    <div className="user_details_container">
+      <div></div>
+    </div>
+  );
 };
 
 export default UserDetails;
