@@ -45,9 +45,6 @@ const Users = () => {
     dispatch(addLocalUser(newUser));
   };
 
-  console.log(users);
-  
-
   return (
     <div className="users_container">
       <div className="users_controls">
