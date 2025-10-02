@@ -121,3 +121,17 @@
   font-weight: 600;
   color: var(--text-dark);
 }
+
+@media (max-width: 768px) {
+  .user_details_header {
+    grid-template-columns: 1fr;
+  }
+
+  .right_details {
+    grid-template-columns: 1fr;
+  }
+
+  .line_divider {
+    opacity: 0;
+  }
+}

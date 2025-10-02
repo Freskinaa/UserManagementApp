@@ -31,14 +31,33 @@ const UserDetails = () => {
     };
   }, [id, users, dispatch]);
 
-const allUserDetails = [
-  userDetails?.username && { type: "string", label: "Username", value: userDetails.username },
-  userDetails?.email && { type: "string", label: "Email", value: userDetails.email },
-  userDetails?.phone && { type: "string", label: "Phone number", value: userDetails.phone },
-  userDetails?.website && { type: "link", label: "Website", value: userDetails.website },
-  userDetails?.company && { type: "company", label: "Company", value: userDetails.company },
-].filter(Boolean);
-
+  const allUserDetails = [
+    userDetails?.username && {
+      type: "string",
+      label: "Username",
+      value: userDetails.username,
+    },
+    userDetails?.email && {
+      type: "string",
+      label: "Email",
+      value: userDetails.email,
+    },
+    userDetails?.phone && {
+      type: "string",
+      label: "Phone number",
+      value: userDetails.phone,
+    },
+    userDetails?.website && {
+      type: "link",
+      label: "Website",
+      value: userDetails.website,
+    },
+    userDetails?.company && {
+      type: "company",
+      label: "Company",
+      value: userDetails.company,
+    },
+  ].filter(Boolean);
 
   if (userDetails === null) {
     return <></>;
