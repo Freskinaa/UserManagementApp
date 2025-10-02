@@ -9,7 +9,7 @@
 }
 
 .search_input_wrapper {
-  width: 40%;
+  flex: 1;
   position: relative;
 }
 
