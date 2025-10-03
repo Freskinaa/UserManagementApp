@@ -8,7 +8,7 @@ The app allows you to view, search, add, sort, update, and delete users with a c
 
 ## **Features**
 
-*1. User List*
+1. **User List**
 
 Fetch users from an API.
 
@@ -24,7 +24,7 @@ Display users in cards showing:
 
 -Store fetched data in component state.
 
-*2. Search*
+2. **Search**
 
 Client-side search by name or email.
 
@@ -44,17 +44,17 @@ Displays additional information including:
 
 -Geo coordinates (latitude & longitude)
 
-*4. Add a New User (Local Only)*
+4. **Add a New User (Local Only)**
 
 Form with validation (name and email are required).
 
 New users are added at the top of the list (local only, not persisted).
 
-*5. Sorting*
+5. **Sorting**
 
 Sort the list of users (A-Z / Z-A).
 
-*6. Redux State Management* 
+6. **Redux State Management** 
 
 Global state management using Redux Toolkit.
 
@@ -64,7 +64,7 @@ Supports:
 
 -Delete user
 
-*5. Responsive desingn*
+5. **Responsive desingn**
 
 Fully responsive layout for all devices:
 
