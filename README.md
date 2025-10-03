@@ -8,91 +8,91 @@ The app allows you to view, search, add, sort, update, and delete users with a c
 
 ## **Features**
 
-1. **User List**
+**1. User List**
 
-Fetch users from an API.
+   Fetch users from an API.
 
-Display users in cards showing:
+   Display users in cards showing:
 
--Name
+     -Name
 
--Email
+    -Email
 
--Company name
+    -Company name
 
--Company catchPhrase
+    -Company catchPhrase
 
--Store fetched data in component state.
+   Store fetched data in component state.
 
-2. **Search**
+**2. Search**
 
-Client-side search by name or email.
+   Client-side search by name or email.
 
-*3. User Details Page*
+**3. User Details Page**
 
-Clicking a user navigates to a details page.
+   Clicking a user navigates to a details page.
 
-Displays additional information including:
+   Displays additional information including:
+  
+    -Username
 
--Username
+    -Address
 
--Address
+    -Phone number
 
--Phone number
+    -Website
 
--Website
+    -Geo coordinates (latitude & longitude)
 
--Geo coordinates (latitude & longitude)
+**4. Add a New User (Local Only)**
 
-4. **Add a New User (Local Only)**
+  Form with validation (name and email are required).
 
-Form with validation (name and email are required).
+  New users are added at the top of the list (local only, not persisted).
 
-New users are added at the top of the list (local only, not persisted).
+**5. Sorting**
 
-5. **Sorting**
+  Sort the list of users (A-Z / Z-A).
 
-Sort the list of users (A-Z / Z-A).
+**6. Redux State Management** 
 
-6. **Redux State Management** 
+ Global state management using Redux Toolkit.
 
-Global state management using Redux Toolkit.
+ Supports:
 
-Supports:
+    -Update user
 
--Update user
+    -Delete user
 
--Delete user
+**5. Responsive desingn**
 
-5. **Responsive desingn**
+  Fully responsive layout for all devices:
 
-Fully responsive layout for all devices:
+    -Laptops: 4 cards per row
 
--Laptops: 4 cards per row
+    -Tablets: 3 cards per row
 
--Tablets: 3 cards per row
+    -Small tablets / large phones: 2 cards per row
 
--Small tablets / large phones: 2 cards per row
-
--Smartphones: 1 card per row
+    -Smartphones: 1 card per row
 
 ## **Technologies Used**
 
--React – UI Library
+    React – UI Library
 
--Vite– Build Tool
+    -Vite– Build Tool
 
--Redux Toolkit – State Management
+    -Redux Toolkit – State Management
 
--React Router – Routing
+    -React Router – Routing
 
--React Redux – Redux bindings for React
+    -React Redux – Redux bindings for React
 
--React Icons – Icon library
+    -React Icons – Icon library
 
--React Modal – Modal component
+    -React Modal – Modal component
 
--CSS – Styling and responsive design
+    -CSS – Styling and responsive design
 
 
 ## **Installation and usage**
