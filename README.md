@@ -1,16 +1,120 @@
-# React + Vite
+## **Project Overview**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The User Management App is a small React application built as part of an internship challenge.
 
-Currently, two official plugins are available:
+It demonstrates the use of components, state management, routing, forms, and data fetching in React.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app allows you to view, search, add, sort, update, and delete users with a clean and responsive user interface
 
-## React Compiler
+## **Features**
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+*1. User List*
 
-## Expanding the ESLint configuration
+Fetch users from an API.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Display users in cards showing:
+
+-Name
+
+-Email
+
+-Company name
+
+-Company catchPhrase
+
+-Store fetched data in component state.
+
+*2. Search*
+
+Client-side search by name or email.
+
+*3. User Details Page*
+
+Clicking a user navigates to a details page.
+
+Displays additional information including:
+
+-Username
+
+-Address
+
+-Phone number
+
+-Website
+
+-Geo coordinates (latitude & longitude)
+
+*4. Add a New User (Local Only)*
+
+Form with validation (name and email are required).
+
+New users are added at the top of the list (local only, not persisted).
+
+*5. Sorting*
+
+Sort the list of users (A-Z / Z-A).
+
+*6. Redux State Management* 
+
+Global state management using Redux Toolkit.
+
+Supports:
+
+-Update user
+
+-Delete user
+
+*5. Responsive desingn*
+
+Fully responsive layout for all devices:
+
+-Laptops: 4 cards per row
+
+-Tablets: 3 cards per row
+
+-Small tablets / large phones: 2 cards per row
+
+-Smartphones: 1 card per row
+
+## **Technologies Used**
+
+-React – UI Library
+
+-Vite– Build Tool
+
+-Redux Toolkit – State Management
+
+-React Router – Routing
+
+-React Redux – Redux bindings for React
+
+-React Icons – Icon library
+
+-React Modal – Modal component
+
+-CSS – Styling and responsive design
+
+
+## **Installation and usage**
+
+1. Clone the repository:
+   
+   git clone https://github.com/Freskinaa/UserManagementApp.git
+   
+   cd UserManagementApp
+
+3. Install dependencies:
+
+   npm install
+
+4. Create a .env file with the following variables:
+
+   VITE_API_BASE_URL=your_api
+
+5. Start the app:
+
+   npm run dev
+
+
+
+   
