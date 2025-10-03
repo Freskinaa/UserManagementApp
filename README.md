@@ -64,7 +64,7 @@ The app allows you to view, search, add, sort, update, and delete users with a c
 
    •Delete user
 
-**5. Responsive desingn**
+**5. Responsive design**
 
  Fully responsive layout for all devices:
 
